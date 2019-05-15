@@ -11,6 +11,8 @@ testmixes.py - Five sample cube mixes, used for testing every new component of t
 
 whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and returns that sequence of moves as a list.
 
+(In progress) F2L_corneredgepair - A script for solving an individual corner edge pair in the F2L stage. Executed four times, this should take a whitecross-ed cube and output a cube with the first two layers solved. I am still fixing major bugs and test-driving this file.
+
 %%%%%%%%%%%%%%%%%%%% OLD OR REDUNDANT FILES %%%%%%%%%%%%%%%%%%%%%
 
 basicturns.py - A cubestate is stored as a list, and this script defines the basic turn functions. This is an implementation 
@@ -22,3 +24,5 @@ level of pattern recognition that a human does.
 whitecross.py - Puts the four edges that are meant to be on the front face (the 01, 02, 04, and 05 edges) in their correct 
 position and orientation. The cube state should be entered one face at a time, as a simple string of 9 digits taken from
 the set {0, 1, 2, 3, 4, 5}.
+
+moveconsolidation.py - A script for consolidating a sequence of moves into a shorter (but equivalent) list. This has since been incorporated into cubefunctions.py.
