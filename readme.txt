@@ -3,38 +3,15 @@ with no glaring inefficiencies via a corner-edge pair method. In future I may tr
 heuristic scores, or I might use this algorithm to generate test data and train a neural net to come up with a more 
 efficient solution method. This last possible project seems quite challenging.
 
-%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%
-
-"The six faces of the cube are referred to as F=front, R=right, U=up, B=back, \
-L=left, D=down. In algebraic notation, any of these six letters refers to a \
-rotation of the corresponding face. For example, R = rotate R clockwise, R' = \
-rotate R counterclockwise, and R2 = rotate R 180 degrees."
-
-"There are also full cube re-orientations, given by x, y, and z which correspond \
-to rotating the R, U, and F face clockwise without holding the rest of the cube \
-constant. Similarly define x', y', z', x2, y2, z2. These won't be necessary but \
-they might be useful later for efficiency."
-
-"It will be assumed that the cube state is given as a 6-element list, \
-and each of these elements is a 9-element list whose entries are drawn from \
-the set {z, x, y, z', x', y'}. These six variables are supposed to represent \
-the six colors on whatever cube you're using, and it's assumed that the mapping \
-follows a right-handed convention. I'm going to imagine x means right, y means \
-up, and z means coming out of the page."
-
-"On my own Rubik's cube, I have x=white, y=red, z=blue, x'=yellow, y'=orange, \
-z'=green (up to symmetries by the 24-element group of re-orientations, of course)."
-
-"The order in which the 54 colors are given is very important. Here's going to \
-be my convention. The six lists give the colors on the F, R, U, B, L, D faces, \
-in that order. The reason for this is that if you sequentially re-orient the cube\
-left, down, left, down, left, down then you will see the faces in precisely this\
-order and end up back at the F face in the same orientation you started with."
-
-"Within each face, the 9 panels will be given as on a phone dialpad, starting \
-in the top left corner and proceeding along each row in turn."
-
 %%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%
+
+cubefunctions.py - Defines the class "cubestate", its characteristics (for example, cubestate.F is the front face as a namedtuples), and the associated methods (face turns, whole cube turns, piece-finding, and movelist consolidation).
+
+testmixes.py - Five sample cube mixes, used for testing every new component of this project.
+
+whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and returns that sequence of moves as a list.
+
+%%%%%%%%%%%%%%%%%%%% OLD OR REDUNDANT FILES %%%%%%%%%%%%%%%%%%%%%
 
 basicturns.py - A cubestate is stored as a list, and this script defines the basic turn functions. This is an implementation 
 of the physical task that a human does.
