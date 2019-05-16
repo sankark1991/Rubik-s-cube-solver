@@ -3,6 +3,10 @@ with no glaring inefficiencies via a corner-edge pair method. In future I may tr
 heuristic scores, or I might use this algorithm to generate test data and train a neural net to come up with a more 
 efficient solution method. This last possible project seems quite challenging.
 
+This project has given me great respect for the storage capacity of the human mind and the nature of intuition/learning. When I solve the Rubik's cube, I use intuition and instinct, rather than recalling memorized algorithms. I thought I could fairly easily write a cube-solver that mimics my own thought process. After writing over a thousand lines of code (hard-coding in cases) I've produced a cube solver that is FAR less move-efficient than I am myself. I now believe that my own self-perceived "intuition" can only be the result of several hundreds of (unconsciously) memorized configurations, which can only be achieved through thousands or tens of thousands of practice solves.
+
+It suddenly makes sense to me why people are turning to learning algorithms, i.e. neural nets.
+
 %%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%
 
 cubefunctions.py - Defines the class "cubestate", its characteristics (for example, cubestate.F is the front face as a namedtuples), and the associated methods (face turns, whole cube turns, piece-finding, and movelist consolidation).
@@ -11,7 +15,7 @@ testmixes.py - Five sample cube mixes, used for testing every new component of t
 
 whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and returns that sequence of moves as a list.
 
-(In progress) F2L_corneredgepair - A script for solving an individual corner edge pair in the F2L stage. Executed four times, this should take a whitecross-ed cube and output a cube with the first two layers solved. I am still fixing major bugs and test-driving this file.
+F2L_corneredgepair - A script for solving an individual corner edge pair in the F2L stage. There's a basic function "F2L_ce_pair()" which solves the corner-edge pair in the FRD position. Then the function "F2L()", which takes an input cubestate with the white cross on the D face, solves the F2L on that cube and outputs a moveslist for that solve.
 
 %%%%%%%%%%%%%%%%%%%% OLD OR REDUNDANT FILES %%%%%%%%%%%%%%%%%%%%%
 
