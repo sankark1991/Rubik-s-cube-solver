@@ -192,7 +192,7 @@ class cubestate:
         dummy = [self.U.fr, self.U.mr, self.U.br]
         self.U = Up(fl=self.U.fl, ml=self.U.ml, bl=self.U.bl, fm=self.U.fm, \
                     mm=self.U.mm, bm=self.U.bm, fr=self.D.br, mr=self.D.mr, \
-                    br=self.D.fl)   
+                    br=self.D.fr)   
         self.D = Down(fl=self.D.fl, ml=self.D.ml, bl=self.D.bl, fm=self.D.fm, \
                       mm=self.D.mm, bm=self.D.bm, fr=dummy[2], mr=dummy[1], \
                       br=dummy[0])
@@ -262,14 +262,14 @@ class cubestate:
                        mm=self.F.mm, mr=self.F.mr, ul=self.R.fu, um=self.R.mu, \
                        ur=self.R.bu)
         self.R = Right(fd=self.R.fd, md=self.R.md, bd=self.R.bd, fm=self.R.fm, \
-                       mm=self.R.mm, bm=self.R.bm, fu=self.B.ul, mu=self.B.um, \
+                       mm=self.R.mm, bm=self.R.bm, fu=self.B.ur, mu=self.B.um, \
                        bu=self.B.ul)
         self.B = Back(dl=self.B.dl, dm=self.B.dm, dr=self.B.dr, ml=self.B.ml, \
                        mm=self.B.mm, mr=self.B.mr, ul=self.L.fu, um=self.L.mu, \
                        ur=self.L.bu)
         self.L = Left(fd=self.L.fd, md=self.L.md, bd=self.L.bd, fm=self.L.fm, \
-                       mm=self.L.mm, bm=self.L.bm, fu=dummy[0], mu=dummy[1], \
-                       bu=dummy[2])
+                       mm=self.L.mm, bm=self.L.bm, fu=dummy[2], mu=dummy[1], \
+                       bu=dummy[0])
         self.moves.append('U')
     "Method Uprimeturn: Counterclockwise turn the up face."
     def Uprimeturn(self):
@@ -345,8 +345,8 @@ class cubestate:
                        mm=self.B.mm, mr=self.B.mr, dl=self.L.fd, dm=self.L.md, \
                        dr=self.L.bd)
         self.L = Left(fu=self.L.fu, mu=self.L.mu, bu=self.L.bu, fm=self.L.fm, \
-                       mm=self.L.mm, bm=self.L.bm, fd=dummy[0], md=dummy[1], \
-                       bd=dummy[2])
+                       mm=self.L.mm, bm=self.L.bm, fd=dummy[2], md=dummy[1], \
+                       bd=dummy[0])
         self.moves.extend(['D','D','D'])
     "Method D2turn: Double turn the down face."
     def D2turn(self):
@@ -585,14 +585,6 @@ class cubestate:
         if self.D.bl == x and self.L.bd == y and self.B.dl == z:
             return ['D','L','B']
         
-        if self.R.fu == x and self.F.ur == y and self.U.fr == z:
-            return ['R','U','F']
-        if self.R.fd == x and self.F.dr == y and self.D.fr == z:
-            return ['R','D','F']
-        if self.R.bu == x and self.B.ur == y and self.U.br == z:
-            return ['R','U','B']
-        if self.R.bd == x and self.B.dr == y and self.D.br == z:
-            return ['R','D','B']
         if self.R.fu == x and self.U.fr == y and self.F.ur == z:
             return ['R','U','F']
         if self.R.fd == x and self.D.fr == y and self.F.dr == z:
@@ -600,15 +592,15 @@ class cubestate:
         if self.R.bu == x and self.U.br == y and self.B.ur == z:
             return ['R','U','B']
         if self.R.bd == x and self.D.br == y and self.B.dr == z:
-            return ['R','D','B']     
-        if self.L.fu == x and self.F.ul == y and self.U.fl == z:
-            return ['L','U','F']
-        if self.L.fd == x and self.F.dl == y and self.D.fl == z:
-            return ['L','D','F']
-        if self.L.bu == x and self.B.ul == y and self.U.bl == z:
-            return ['L','U','B']
-        if self.L.bd == x and self.B.dl == y and self.D.bl == z:
-            return ['L','D','B']
+            return ['R','D','B']
+        if self.R.fu == x and self.F.ur == y and self.U.fr == z:
+            return ['R','F','U']
+        if self.R.fd == x and self.F.dr == y and self.D.fr == z:
+            return ['R','F','D']
+        if self.R.bu == x and self.B.ur == y and self.U.br == z:
+            return ['R','B','U']
+        if self.R.bd == x and self.B.dr == y and self.D.br == z:
+            return ['R','B','D']     
         if self.L.fu == x and self.U.fl == y and self.F.ul == z:
             return ['L','U','F']
         if self.L.fd == x and self.D.fl == y and self.F.dl == z:
@@ -617,34 +609,55 @@ class cubestate:
             return ['L','U','B']
         if self.L.bd == x and self.D.bl == y and self.B.dl == z:
             return ['L','D','B']
+        if self.L.fu == x and self.F.ul == y and self.U.fl == z:
+            return ['L','F','U']
+        if self.L.fd == x and self.F.dl == y and self.D.fl == z:
+            return ['L','F','D']
+        if self.L.bu == x and self.B.ul == y and self.U.bl == z:
+            return ['L','B','U']
+        if self.L.bd == x and self.B.dl == y and self.D.bl == z:
+            return ['L','B','D']
     "Method movescleanup: Eliminates redundancies in the moveslist."
     def movesconsolidate(self):
         i = 0
         while i < len(self.moves):
-            x = self.moves[i]
-            if x == 'F':
+            if self.moves[i] == 'F' or self.moves[i] == 'F`' or self.moves[i] == 'F2':
+                x = 'F'
                 nx = 'B'
-            elif x == 'B':
+            elif self.moves[i] == 'B' or self.moves[i] == 'B`' or self.moves[i] == 'B2':
+                x = 'B'
                 nx = 'F'
-            elif x == 'U':
+            elif self.moves[i] == 'U' or self.moves[i] == 'U`' or self.moves[i] == 'U2':
+                x = 'U'
                 nx = 'D'
-            elif x == 'D':
+            elif self.moves[i] == 'D' or self.moves[i] == 'D`' or self.moves[i] == 'D2':
+                x = 'D'
                 nx = 'U'
-            elif x == 'R':
+            elif self.moves[i] == 'R' or self.moves[i] == 'R`' or self.moves[i] == 'R2':
+                x = 'R'
                 nx = 'L'
-            elif x == 'L':
+            elif self.moves[i] == 'L' or self.moves[i] == 'L`' or self.moves[i] == 'L2':
+                x = 'L'
                 nx = 'R'
-            counter = 1
-            total = 1
+            else:
+                i += 1
+                continue
+            counter = 0
+            total = 0
             while i + counter < len(self.moves):
                 if self.moves[i + counter] == x:
                     total += 1
                     del self.moves[i + counter]
-                elif self.moves[i + counter] == nx:
+                elif self.moves[i + counter] == x+'`':
+                    total += 3
+                    del self.moves[i + counter]
+                elif self.moves[i + counter] == x+'2':
+                    total += 2
+                    del self.moves[i + counter]
+                elif self.moves[i + counter] == nx or self.moves[i + counter] == nx+'`' or self.moves[i + counter] == nx+'2':
                     counter += 1
                 else:
                     break
-            del self.moves[i]
             if total % 4 == 1:
                 self.moves.insert(i,x)
             elif total % 4 == 2:
@@ -652,5 +665,5 @@ class cubestate:
             elif total % 4 == 3:
                 self.moves.insert(i,x+'`')
             else:
-                i -= 2
+                i = max(-1,i-2)
             i += 1
