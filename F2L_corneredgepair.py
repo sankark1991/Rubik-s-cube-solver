@@ -53,9 +53,6 @@ def F2L_ce_pair(cube):
     #        cube.Lprimeturn()       
     
 
-    
-    "Case 2: the corner is in one of the four U slots. In this case, "
-
     "First, move the corner to either the FRU position, or if it's already in the \
     FRD position then leave it there."
     cp = cube.cornerfind(x,y,z)
@@ -77,6 +74,8 @@ def F2L_ce_pair(cube):
         cube.Uturn()
     elif cp == ['U','L','B'] or cp == ['B','U','L'] or cp == ['L','B','U']:
         cube.U2turn()
+    else:
+        pass
     
     "Variable pos = 1 if the corner is in the right position, or pos = 0 if it's above."
     cp = cube.cornerfind(x,y,z)
@@ -106,6 +105,8 @@ def F2L_ce_pair(cube):
             cube.Uprimeturn()
             cube.Lprimeturn()
             cube.Uturn()
+    else:
+        pass
     
     "There are now 60 cases to handle."
     cp = cube.cornerfind(x,y,z)
@@ -197,7 +198,7 @@ def F2L_ce_pair(cube):
     if cp == ['U','R','F']:
         if ep == ['L','U']:
             cube.Fprimeturn()
-            cube.Uturn()
+            cube.Uprimeturn()
             cube.Fturn()
         elif ep == ['U','R']:
             cube.Uturn()
@@ -209,9 +210,9 @@ def F2L_ce_pair(cube):
             cube.Uturn()
             cube.Fturn()
             cube.U2turn()
-            cube.Lturn()
+            cube.Rturn()
             cube.Uturn()
-            cube.Lprimeturn()
+            cube.Rprimeturn()
         elif ep == ['U','L']:
             cube.Uprimeturn()
             cube.Rturn()
@@ -221,7 +222,7 @@ def F2L_ce_pair(cube):
             cube.Rturn()
             cube.U2turn()
             cube.Rprimeturn()
-        elif ep == ['U','R']:
+        elif ep == ['U','B']:
             cube.Uprimeturn()
             cube.Rturn()
             cube.Uturn()
@@ -332,13 +333,13 @@ def F2L_ce_pair(cube):
             cube.Uprimeturn()
             cube.Fturn()
             cube.U2turn()
-            cube.Rprimeturn()
+            cube.Fprimeturn()
             cube.Uprimeturn()
-            cube.Rturn()
+            cube.Fturn()
             cube.Uturn()
-            cube.Rprimeturn()
+            cube.Fprimeturn()
             cube.Uprimeturn()
-            cube.Rturn()
+            cube.Fturn()
         elif ep == ['U','R']:
             cube.Rturn()
             cube.U2turn()
@@ -534,7 +535,7 @@ def F2L(cube):
     cube.FtoLturn()
     F2L_ce_pair(cube)
     cube.movesconsolidate()
-    movesF2L = cube.moves.copy()
-    cube.moves.clear()
-    return movesF2L
+    #movesF2L = cube.moves.copy()
+    #cube.moves.clear()
+    #return movesF2L
     
