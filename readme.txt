@@ -9,13 +9,15 @@ It suddenly makes sense to me why people are turning to learning algorithms, i.e
 
 %%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%
 
-cubefunctions.py - Defines the class "cubestate", its characteristics (for example, cubestate.F is the front face as a namedtuples), and the associated methods (face turns, whole cube turns, piece-finding, and movelist consolidation).
+cubefunctions.py - Defines the class "cubestate", its characteristics (for example, cubestate.F is the front face as a namedtuples), and the associated methods (face turns, whole cube turns, piece-finding, movelist consolidation, and the PLL algorithms).
 
-testmixes.py - Five sample cube mixes, used for testing every new component of this project.
+testmixes.py - Defines a function to solve a test cube, as well as a function which tests whether a given cube is solved or not. Fifteen sample cube mixes, and runs the full solve algorithm on all of them. As of now the algorithm successfully solves all fifteen samples, though I will run more tests to catch any other bugs.
 
-whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and returns that sequence of moves as a list.
+whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and stores those moves in the list cubestate.moves.
 
-F2L_corneredgepair - A script for solving an individual corner edge pair in the F2L stage. There's a basic function "F2L_ce_pair()" which solves the corner-edge pair in the FRD position. Then the function "F2L()", which takes an input cubestate with the white cross on the D face, solves the F2L on that cube and outputs a moveslist for that solve.
+F2L_corneredgepair.py - A script for solving an individual corner edge pair in the F2L stage. There's a basic function "F2L_ce_pair()" which solves the corner-edge pair in the FRD position. Then the function "F2L()", which takes an input cubestate with the white cross on the D face, solves the F2L on that cube and stores the sequence of moves in the list cubestate.moves.
+
+lastlayer.py - A script for solving the OLL step and PLL step, i.e. solving the entire last layer of the cube.
 
 %%%%%%%%%%%%%%%%%%%% OLD OR REDUNDANT FILES %%%%%%%%%%%%%%%%%%%%%
 
