@@ -59,6 +59,8 @@ def testifsolved(cube):
         
 failedlist = []
 
+################
+
 'Testmix0: DF`UD`B`L`UF`L2R`U2F`B2DF2BL`BF2UR`DB`DF`'
 testmix0 = ['D', 'F`', 'U', 'D`', 'B`', 'L`', 'U', 'F`', 'L2', 'R`', 'U2', 'F`', 'B2', 'D', 'F2', 'B', 'L`', 'B', 'F2', 'U', 'R`', 'D', 'B`', 'D', 'F`']
 Front0= Front(ul='w',um='w',ur='w',ml='w',mm='w',mr='w',dl='w',dm='w',dr='w')
