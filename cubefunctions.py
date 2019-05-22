@@ -960,3 +960,53 @@ class cubestate:
         self.Lprimeturn()
         self.Uturn()
         self.Rprimeturn()
+    def movesexecutor(self, moves):
+        while len(moves) != 0:
+            A = moves.pop(0)
+            if A == 'U':
+                self.Uturn()
+            elif A == 'U`':
+                self.Uprimeturn()
+            elif A == 'U2':
+                self.U2turn()
+            elif A == 'D':
+                self.Dturn()
+            elif A == 'D`':
+                self.Dprimeturn()
+            elif A == 'D2':
+                self.D2turn()
+            elif A == 'F':
+                self.Fturn()
+            elif A == 'F`':
+                self.Fprimeturn()
+            elif A == 'F2':
+                self.F2turn()
+            elif A == 'B':
+                self.Bturn()
+            elif A == 'B`':
+                self.Bprimeturn()
+            elif A == 'B2':
+                self.B2turn()
+            elif A == 'R':
+                self.Rturn()
+            elif A == 'R`':
+                self.Rprimeturn()
+            elif A == 'R2':
+                self.R2turn()
+            elif A == 'L':
+                self.Lturn()
+            elif A == 'L`':
+                self.Lprimeturn()
+            elif A == 'L2':
+                self.L2turn()
+            elif A == 'x`':
+                self.FtoDturn()
+            elif A == 'x':
+                self.FtoUturn()
+            elif A == 'y':
+                self.FtoLturn()
+            elif A == 'y`':
+                self.FtoRturn()
+            else:
+                print('Invalid move!')
+     

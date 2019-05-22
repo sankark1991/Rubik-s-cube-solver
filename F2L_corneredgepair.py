@@ -112,7 +112,7 @@ def F2L_ce_pair(cube):
     cp = cube.cornerfind(x,y,z)
     ep = cube.edgefind(x,y)
     
-    "Corner oriented FUR. There are 10 cases here."
+    #"Corner oriented FUR. There are 10 cases here."
     if cp == ['F','U','R']:
         if ep == ['U','B']:
             cube.Rturn()
@@ -194,8 +194,8 @@ def F2L_ce_pair(cube):
             cube.Rturn()
             cube.Uturn()
             cube.Rprimeturn()
-    "Corner oriented URF. There are 10 cases here."
-    if cp == ['U','R','F']:
+    #"Corner oriented URF. There are 10 cases here."
+    elif cp == ['U','R','F']:
         if ep == ['L','U']:
             cube.Fprimeturn()
             cube.Uprimeturn()
@@ -276,8 +276,8 @@ def F2L_ce_pair(cube):
             cube.Fprimeturn()
             cube.Uprimeturn()
             cube.Fturn()
-    "Corner oriented RFU. There are 10 cases here."
-    if cp == ['R','F','U']:
+    #"Corner oriented RFU. There are 10 cases here."
+    elif cp == ['R','F','U']:
         if ep == ['L','U']:
             cube.Uprimeturn()
             cube.Fprimeturn()
@@ -360,7 +360,6 @@ def F2L_ce_pair(cube):
             cube.Rturn()
             cube.Uturn()
             cube.Rprimeturn()
-            cube.Uprimeturn()
         elif ep == ['R','F']:
             cube.Rturn()
             cube.Uprimeturn()
@@ -368,8 +367,8 @@ def F2L_ce_pair(cube):
             cube.Fprimeturn()
             cube.U2turn()
             cube.Fturn()
-    "Corner oriented RDF. There are 10 cases."
-    if cp == ['R','D','F']:
+    #"Corner oriented RDF. There are 10 cases."
+    elif cp == ['R','D','F']:
         if ep[0] == 'U':
             if ep[1] == 'F':
                 cube.Uprimeturn()
@@ -386,11 +385,11 @@ def F2L_ce_pair(cube):
             cube.Rprimeturn()
         elif ep[1] == 'U':
             if ep[0] == 'R':
-                cube.Uturn
+                cube.Uturn()
             elif ep[0] == 'B':
-                cube.U2turn
+                cube.U2turn()
             elif ep[0] == 'L':
-                cube.Uprimeturn
+                cube.Uprimeturn()
             cube.Fprimeturn()
             cube.Uprimeturn()
             cube.Fturn()
@@ -424,8 +423,8 @@ def F2L_ce_pair(cube):
                 cube.Uprimeturn()
                 cube.Fturn()
             
-    "Corner oriented DFR. There are 10 cases."
-    if cp == ['D','F','R']:
+    #"Corner oriented DFR. There are 10 cases."
+    elif cp == ['D','F','R']:
         if ep[0] == 'U':
             if ep[1] == 'B':
                 cube.Uturn()
@@ -479,8 +478,8 @@ def F2L_ce_pair(cube):
                 cube.Fprimeturn()
                 cube.Uprimeturn()
                 cube.Fturn()
-    "Corner in place. There are 10 cases."
-    if cp == ['F','R','D']:
+    #"Corner in place. There are 10 cases."
+    elif cp == ['F','R','D']:
         if ep[0] == 'U':
             if ep[1] == 'B':
                 cube.Uturn()

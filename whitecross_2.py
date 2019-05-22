@@ -52,7 +52,7 @@ def whitecross(cubestate):
                     cubestate.Fprimeturn()
                     cubestate.Dturn()
             if edge[0] == 'D':
-                if cubestate.F.ml != f:
+                if cubestate.F.mr != f:
                     cubestate.Dturn()
                     cubestate.Rturn()
                 elif cubestate.F.ml != f:
