@@ -9,6 +9,8 @@ It suddenly makes sense to me why people are turning to learning algorithms, i.e
 
 %%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%% Functions and Algorithms %%%%%%%%%%%%%%%%%%%%
+
 cubefunctions.py - Defines the class "cubestate", its characteristics (for example, cubestate.F is the front face as a namedtuples), and the associated methods (face turns, whole cube turns, piece-finding, movelist consolidation, the PLL algorithms, and a method which executes a given list of turns).
 
 whitecross_2.0.py - A new and improved version of whitecross.py. The function whitecross(cubestate) takes the input cubestate, executes a sequence of turns to correctly place the four edges on the F face, and stores those moves in the list cubestate.moves.
@@ -17,11 +19,15 @@ F2L_corneredgepair.py - A script for solving an individual corner edge pair in t
 
 lastlayer.py - A script for solving the OLL step and PLL step, i.e. solving the entire last layer of the cube.
 
+%%%%%%%%%%%%%%%%%%%%% Testing and Statistics %%%%%%%%%%%%%%%%%%%%%
+
 testmixgenerator.py - I got tired of manually generated test cases. So I wrote a script which generates 100 random testmixes and then writes the code to test those testmixes and puts it in a file called random_mixes.txt.
 
 testsuite.py - This is the file where I'm pasting in the code from random_mixes.txt, along with some preamble (the code should be pasted after the ##### part). After the latest round of debugging I've tested about 500 random mixes and with a 100% success rate.
 
-%%%%%%%%%%%%%%%%%%%% OLD OR REDUNDANT FILES %%%%%%%%%%%%%%%%%%%%%
+randomcubetester.py - I combined the above two into a single script which generates count=1000 random mixed cubes, solves them, and outputs a list of which solves failed, along with the average number of moves required (which hovers around 78 right now). I've tested about 10000 random mixes with no failures, so I think I can call the algorithm ready.
+
+%%%%%%%%%%%%%%%%%%%% Old or Redundant Files %%%%%%%%%%%%%%%%%%%%%
 
 basicturns.py - A cubestate is stored as a list, and this script defines the basic turn functions. This is an implementation 
 of the physical task that a human does.
