@@ -7,7 +7,11 @@ This project has given me great respect for the storage capacity of the human mi
 
 It suddenly makes sense to me why people are turning to learning algorithms, i.e. neural nets.
 
-%%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% DESCRIPTION OF SCRIPTS %%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Solver %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+input_cube_solver.py - Prompts the user to enter the 54 panels of the Rubik's cube and returns a string of moves which solves the cube. This is given in standard cube notation, e.g. F = turn the front face clockwise, D' = turn the down face counterclockwise, x' = rotate the whole cube so that the current F face becomes the D face, y = rotate the whole cube so that the current F face becomes the L face.
 
 %%%%%%%%%%%%%%%%%%%% Functions and Algorithms %%%%%%%%%%%%%%%%%%%%
 
